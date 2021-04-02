@@ -1,83 +1,92 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import Card from "../components/Cards";
-import Navigation from "../components/Navigation";
+const Apper = () => {
+  const [app, setApp] = useState(false);
 
-import Footer from "../components/Footer";
-
-const Apps = (props) => {
-
-  const [serv, setService] = useState([
-    {
-      icon: "fas fa-book",
-      hd: "NIN-verification",
-      slug: "tas",
-      subtext:
-        "Platform designed for the reliable verification and authentication of NIN numbers",
-      dest: `${process.env.SITEURL}/#/ninverification`,
-      text:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      icon: "fas fa-folder-open",
-      hd: "EDMS",
-      slug: "edms",
-      subtext:
-        "Electronic document management system for digital authentication and verification of documents.",
-      text:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      icon: "fas fa-graduation-cap",
-      hd: "E-LEARNING",
-      slug: "teacher_tool",
-      subtext:
-        "product of NeGst built to help facilitate electronic education of the nation using TAS platform",
-      dest: 'http://lms.negst.com.ng/',
-      text:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-    {
-      icon: "fas fa-oil-can",
-      hd: "PETROHUB",
-      slug: "petro_hub",
-      subtext:
-        "product of NeGst built to help facilitate electronic education of the nation using TAS platform",
-      dest: '',
-      text:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
-    },
-  ]);
-
-  const selectThisCard = (url) => {
-
-    // e.preventDefault();
-    if (url) {
-      window.location.assign(url);
-    }
-
-  }
+  useEffect(() => {
+    const handleDropdonClose = () => {
+      if (app) {
+        setApp(false);
+      }
+    };
+    window.addEventListener("click", handleDropdonClose);
+    return () => window.removeEventListener("click", handleDropdonClose);
+  }, [app]);
 
   return (
-    <div>
-      {/* <Navigation /> */}
-      <div className="container" style={{}}>
-        <div className="row"
+    <div style={{ position: "relative" }}>
+      <li onClick={() => setApp(true)}>Apps</li>
+      {app && (
+        <div
+          style={{
+            position: "absolute",
+            width: "300px",
+            display: "flex",
+            justifyContent: "space-between",
+            background: "white",
+            borderRadius: "10px",
+            padding: "20px 40px",
+            margin: "0px auto",
+            boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.05)",
+            right: "5px",
+            marginTop: "10px",
+          }}
         >
-          {serv.map((service, i) => (
-            <Card
-              key={i}
-              selectCard={() => selectThisCard(service.dest)}
-              icon={service.icon}
-              hd={service.hd}
-              text={service.subtext}
-            />
-          ))}
+          <div
+            className="hover"
+            style={{ textAlign: "center", cursor: "pointer" }}
+          >
+            <div>
+              <i style={{ fontSize: "2.5rem" }} className="fas fa-book"></i>
+            </div>
+            <div
+              className="hover-text"
+              style={{
+                fontSize: "0.9rem",
+                marginTop: "10px",
+              }}
+            >
+              tas
+            </div>
+          </div>
+          <div
+            className="hover"
+            style={{ textAlign: "center", cursor: "pointer" }}
+          >
+            <div>
+              <i style={{ fontSize: "2.5rem" }} className="fas fa-book"></i>
+            </div>
+            <div
+              className="hover-text"
+              style={{
+                fontSize: "0.9rem",
+                marginTop: "10px",
+              }}
+            >
+              tas
+            </div>
+          </div>
+          <div
+            className="hover"
+            style={{ textAlign: "center", cursor: "pointer" }}
+          >
+            <div>
+              <i style={{ fontSize: "2.5rem" }} className="fas fa-book"></i>
+            </div>
+            <div
+              className="hover-text"
+              style={{
+                fontSize: "0.9rem",
+                marginTop: "10px",
+              }}
+            >
+              tas
+            </div>
+          </div>
         </div>
-      </div>
-      {/* <Footer /> */}
+      )}
     </div>
   );
 };
 
-export default Apps;
+export default Apper;

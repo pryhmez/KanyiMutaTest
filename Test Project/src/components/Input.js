@@ -9,7 +9,7 @@ const Input = (props) => {
         placeholder={props.placeholder}
         type={props.type}
         name={props.email}
-        onChange={(e) => props.onChange(e.target.value)}
+        // onChange={(e) => props.onChange(e.target.value)}
       />
       <div className="input-img-cont">
         <img src={props.img} />

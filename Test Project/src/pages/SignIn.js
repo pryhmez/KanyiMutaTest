@@ -14,15 +14,20 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 
 import Logo from "../components/Logo";
+import Toast from "../components/Toast";
 
 import at from "../assets/at.png";
 import unlock from "../assets/unlock.png";
 import inp from "../assets/in-img.svg";
+import checkIcon from "../assets/check.svg";
 
 const SignIn = (props) => {
+
   const history = useHistory();
 
-  const [loading, setLoading] = (false);
+  const [testList, setTestList] = useState([]);
+
+  const [loading, setLoading] = useState(false);
 
 
   const handleSignIn = (e) => {
@@ -38,9 +43,19 @@ const SignIn = (props) => {
     props.signInUser(details).then((response) => {
       setLoading(false);
 
-      //   console.log(response.data);
+      // console.log(props.user)
+      //   console.log(response);
+        setTestList([
+          {
+            id: 1,
+            title: 'Success',
+            description: 'Sign In was successfull',
+            backgroundColor: '#5cb85c',
+            icon: checkIcon
+          }
+        ])
       }).catch(e => {
-        console.log(e.response.data);
+        // console.log(e.response.data);
     })
   };
 
@@ -52,6 +67,11 @@ const SignIn = (props) => {
         <div className="form-nav">
           <Logo color={"#3CB471"} />
         </div>
+
+        <Toast
+           toastList={testList}
+           position="top-left"
+        />
 
         <div className="form-div-hd">
           <p>continue for free</p>

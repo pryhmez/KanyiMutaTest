@@ -13,7 +13,6 @@ export default () => {
         combineReducers({
           user: user
         }),
-        undefined,
         applyMiddleware(thunk)
     );
 

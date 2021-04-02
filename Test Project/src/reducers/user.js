@@ -11,7 +11,7 @@ const initialState = {
 export default function user(state = initialState, action) {
     switch (action.type) {
         case 'ADD_USER' :
-            console.log(JSON.stringify(state))
+            console.log(JSON.stringify(state) + "wngboirbgsobgibsiob")
             return {
                 ...state,
                 token: action.token,
