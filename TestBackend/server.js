@@ -1,5 +1,5 @@
 var express = require('express');
-var { keySecret, keyPublishable } = require("./config/stripeConfig");
+// var { keySecret, keyPublishable } = require("./config/stripeConfig");
 var app = express();
 var http = require('http');
 var cors = require('cors');
@@ -7,10 +7,10 @@ var morgan = require('morgan');
 const dotenv = require('dotenv');
 const AppError = require('./utils/appError');
 var port = process.env.PORT || 8080;
-var databaseconfig = require('./config/db');
+// var databaseconfig = require('./config/db');
 var appRoutes = require('./routes');
 var Router = require('express').Router();
-const stripe = require("stripe")(keySecret);
+// const stripe = require("stripe")(keySecret);
 const pug = require('pug');
 const path = require('path');
 
@@ -54,5 +54,5 @@ server.on('listening', listening);
 
 
 function listening() {
-	databaseconfig();
+	// databaseconfig();
 }

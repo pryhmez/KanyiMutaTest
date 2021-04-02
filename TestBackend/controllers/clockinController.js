@@ -11,7 +11,11 @@ module.exports = function userController() {
     res.send({
       success: true,
       message: "registration successful",
-      data: req.body
+      data: req.body,
+      token: "uiwbwpvp9webpvbwpievbpwevi",
+      id: "h9q899312e89dqp",
+      firstName: "isaac",
+      lastName: "prime"
     })
 
     // register(req.body, req.params.id)
@@ -40,7 +44,11 @@ module.exports = function userController() {
     res.send({
       success: true,
       message: "successfully clocked in",
-      data: req.body
+      data: req.body,
+      token: "cin9w8nfnw8efwefwefqf",
+      id: "uneiuvpqieuvbuivv",
+      firstName: "isaac",
+      lastName: "prime"
 
     })
   }
